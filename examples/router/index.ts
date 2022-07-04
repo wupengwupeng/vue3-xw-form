@@ -1,11 +1,10 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
-import XmwForm from '../../packages/xmwForm/src/main.vue'
-
+import App from '../App.vue'
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
         name: 'home',
-        component: XmwForm
+        component: App
     }
 ]
 //创建

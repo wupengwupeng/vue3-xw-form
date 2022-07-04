@@ -202,6 +202,7 @@ function handleSubmit() {
 </script>
 ### 温馨提示对于一些复杂的组件需要自己封装再使用这个组件
 ## 存在一些问题请勿喷，还在修改中。
+## github地址 https://github.com/wupengwupeng/vue3-xw-form.git
 
 ```
 

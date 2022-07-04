@@ -7,6 +7,7 @@ export type FormColumnRaw = {
   label: string // from表单的label
   prop: string // from表单的prop
   componentsProps: object // 组件的props
+  slot?: Object // 组件的插槽
   type: string | ComponentInternalInstance | Component // 组件的名字
 }
 export const defaultProps = {
