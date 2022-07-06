@@ -2,8 +2,12 @@
 import { defineComponent, h, PropType, toRefs } from 'vue'
 export default defineComponent({
   props: {
+    item: {
+      type: String as PropType<any>
+    },
     componentType: {
       type: String as PropType<any>,
+      default: 'div'
     },
     hProps: {
       type: Object as PropType<any>,
@@ -16,11 +20,22 @@ export default defineComponent({
   },
   setup(props) {
     return {
-      ...toRefs(props)
+      ...toRefs(props),
     }
   },
   render() {
-    return h('span', { ...this.hProps }, { ...this.slots })
+    const app = h(this.componentType, { ...this.hProps }, this.$slots?.default?.call(this))
+    const other = h(this.componentType, { ...this.hProps }, this.$slots?.other?.call(this, this.item))
+    const isSlots = Object.keys(this.slots).length
+    if (isSlots) {
+      return h(this.componentType, { ...this.hProps }, { ...this.slots })
+    } else {
+      return [h('div', [this.$slots.default ? app : other])]
+
+    }
+
+
+
   }
 })
 </script>
